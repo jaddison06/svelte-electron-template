@@ -16,8 +16,15 @@ cd my-electron-app
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+...then start Rollup and Electron:
 
 ```bash
 npm run electron-dev
 ```
+## So, how does it all work?
+---
+The `src` directory is divided into two directories for Electron code and frontend code.
+
+Code from the `electron` directory represents the 'backend' of the app. Currently, `electron.js` is Electron's entrypoint. It takes care of basic window initialization. `preload.js` allows you to initialize values and APIs that will be passed to the renderer thread, and lets you use Node APIs and libraries.
+
+Code from the `frontend` directory belongs to Svelte. It represents your app's UI. `main.ts` is Svelte's entrypoint, and `App.svelte` is our main component. `global.d.ts` contains global type information.
